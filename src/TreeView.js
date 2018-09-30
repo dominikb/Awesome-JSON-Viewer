@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 var $ = require('jquery');
-var jQuery = $;
 import { initPlugin } from './utils/json-viewer/jquery.json-viewer.js';
 import './utils/json-viewer/jquery.json-viewer.css';
 import PathQuery from "./PathQuery";
@@ -132,7 +130,7 @@ class TreeView extends Component {
             $(document).on("click", "a.json-toggle", this.toggleSection);
 
           setTimeout(() => {
-                if (window.extensionOptions.collapsed == true) {
+                if (window.extensionOptions && window.extensionOptions.collapsed == true) {
                 $.each($('a.json-toggle'), function (index, item) {
                     if (index > 0) {
                         $(item).trigger('click');
