@@ -4,6 +4,7 @@ var $ = require('jquery');
 var jQuery = $;
 import { initPlugin } from './utils/json-viewer/jquery.json-viewer.js';
 import './utils/json-viewer/jquery.json-viewer.css';
+import PathQuery from "./PathQuery";
 
 class TreeView extends Component {
     constructor(props) {
@@ -147,10 +148,19 @@ class TreeView extends Component {
         $(document).off("click", "a.json-toggle", this.toggleSection);
     }
 
+    onQueryResult(value) {
+        const pluginOptions = {
+            collapsed: false,
+            withQuotes: true
+        };
+        initPlugin(this.$node, $, value, pluginOptions);
+    }
+
     render() {
         window.json = this.props.data;
         return (
             <div>
+                <PathQuery json={this.state.data} onQueryResult={this.onQueryResult.bind(this)}/>
                 <a className="copier" style={{ top: this.state.top, display: this.state.showCopier ? 'block' : 'none' }}>
                     <ul className="copyMenu">
                         <li><a onClick={this.copy.bind(this, event, 'path')}>Copy path</a></li>

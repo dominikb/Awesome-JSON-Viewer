@@ -1,0 +1,57 @@
+darkGrey = #1C2833
+lightGrey = #dcebf2
+inputWidth = 250px
+
+label[for="query"]
+  display inline-flex
+  height 1.5rem
+  background-color lightGrey
+  padding .5rem 1rem
+  border-radius 30px
+  transition all .2s ease-in
+
+  &:not(:hover):not(:focus-within)
+    height 1rem
+    padding .25rem
+
+    input[name="query"]
+      font-size 1rem
+      &:placeholder-shown
+        width 0
+        margin 0
+        padding 0
+
+input[name="query"]
+  border none
+  width inputWidth
+  margin 0 1rem
+  padding 0.5rem
+  background-color lightGrey
+  font-size 1.25rem
+  transition all .2s ease-in
+
+  &:focus
+    outline none
+
+span.query
+  display inline-flex
+  position relative
+  transition all .2s ease-in
+
+  &:after
+    content ''
+    height 2px
+    position absolute
+    bottom 0
+    left 50%
+    margin-left 'calc(%s / -2)' % inputWidth
+    background-color darkGrey
+    width inputWidth
+    transition width 0.2s ease-out
+
+  &:not(:focus-within):after
+    width 0
+
+img.icon
+  display inline-block
+  height 100%

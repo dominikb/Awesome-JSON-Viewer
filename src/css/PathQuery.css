@@ -1,0 +1,55 @@
+label[for="query"] {
+  display: inline-flex;
+  height: 1.5rem;
+  background-color: #dcebf2;
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
+  transition: all 0.2s ease-in;
+}
+label[for="query"]:not(:hover):not(:focus-within) {
+  height: 1rem;
+  padding: 0.25rem;
+}
+label[for="query"]:not(:hover):not(:focus-within) input[name="query"] {
+  font-size: 1rem;
+}
+label[for="query"]:not(:hover):not(:focus-within) input[name="query"]:placeholder-shown {
+  width: 0;
+  margin: 0;
+  padding: 0;
+}
+input[name="query"] {
+  border: none;
+  width: 250px;
+  margin: 0 1rem;
+  padding: 0.5rem;
+  background-color: #dcebf2;
+  font-size: 1.25rem;
+  transition: all 0.2s ease-in;
+}
+input[name="query"]:focus {
+  outline: none;
+}
+span.query {
+  display: inline-flex;
+  position: relative;
+  transition: all 0.2s ease-in;
+}
+span.query:after {
+  content: '';
+  height: 2px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: calc(250px / -2);
+  background-color: #1c2833;
+  width: 250px;
+  transition: width 0.2s ease-out;
+}
+span.query:not(:focus-within):after {
+  width: 0;
+}
+img.icon {
+  display: inline-block;
+  height: 100%;
+}
